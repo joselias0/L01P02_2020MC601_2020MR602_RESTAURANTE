@@ -1,4 +1,10 @@
+using L01P02_2020MC601_2020MR602.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddDbContext<restauranteContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("restauranteDBconnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
